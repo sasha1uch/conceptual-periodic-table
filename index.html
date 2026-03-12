@@ -1,409 +1,484 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Ecosystem — Conceptual Periodic Table</title>
+  <style>
+    :root{
+      --bg:#02040b;
+      --panel:#050814;
+      --panel2:#08101f;
+      --cyan:#19f0ff;
+      --magenta:#ff2dfb;
+      --green:#39ff62;
+      --white:#f5f7fb;
+      --muted:#cfd8e6;
+    }
 
-<title>Technology Ecosystem Periodic Table</title>
+    *{box-sizing:border-box;}
 
-<style>
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(25,240,255,.12), transparent 32%),
+        radial-gradient(circle at 0% 40%, rgba(255,45,251,.06), transparent 30%),
+        radial-gradient(circle at 100% 60%, rgba(57,255,98,.06), transparent 28%),
+        linear-gradient(180deg, #01030a 0%, #02040b 100%);
+      min-height:100vh;
+    }
 
-body{
-background:#01020a;
-font-family:Segoe UI,Arial;
-color:white;
-text-align:center;
-margin:0;
-}
+    .wrap{
+      max-width:1450px;
+      margin:0 auto;
+      padding:32px 26px 70px;
+    }
 
-h1{
-margin-top:40px;
-font-size:44px;
-letter-spacing:3px;
-color:#00f7ff;
-text-shadow:0 0 20px #00f7ff;
-}
+    h1{
+      margin:0;
+      text-align:center;
+      font-size:clamp(38px, 7vw, 86px);
+      font-weight:800;
+      letter-spacing:5px;
+      color:var(--cyan);
+      text-shadow:0 0 18px rgba(25,240,255,.65), 0 0 46px rgba(25,240,255,.28);
+    }
 
-.table{
+    .subtitle{
+      margin:12px auto 34px;
+      max-width:980px;
+      text-align:center;
+      color:#dbe5ef;
+      opacity:.88;
+      font-size:15px;
+      line-height:1.55;
+    }
 
-display:grid;
-grid-template-columns:repeat(4,180px);
-gap:35px;
-justify-content:center;
-margin-top:60px;
+    .group-row{
+      display:grid;
+      grid-template-columns:110px repeat(4, 1fr);
+      gap:18px;
+      margin:20px auto 14px;
+      align-items:end;
+    }
 
-}
+    .group-label,
+    .period-label{
+      border:1.5px solid rgba(25,240,255,.45);
+      background:rgba(8,16,31,.55);
+      border-radius:16px;
+      color:#eaf6ff;
+      backdrop-filter: blur(8px);
+      box-shadow:0 0 18px rgba(25,240,255,.14);
+    }
 
-.element{
+    .group-label{
+      padding:12px 10px;
+      text-align:center;
+      font-size:13px;
+      line-height:1.35;
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
-position:relative;
-width:180px;
-height:180px;
-background:#02030a;
-border-radius:12px;
-border:2px solid #00f7ff;
-transition:.3s;
-cursor:pointer;
+    .period-row{
+      display:grid;
+      grid-template-columns:110px repeat(4, 1fr);
+      gap:18px;
+      align-items:center;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
 
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+    .period-label{
+      padding:14px 10px;
+      text-align:center;
+      font-size:13px;
+      line-height:1.4;
+      min-height:195px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
 
-box-shadow:
-0 0 15px #00f7ff55,
-0 0 40px #00f7ff22;
+    .period-label strong,
+    .group-label strong{
+      color:var(--white);
+      display:block;
+      margin-bottom:4px;
+    }
 
-}
+    .card{
+      position:relative;
+      min-height:195px;
+      background:linear-gradient(180deg, rgba(4,7,16,.98), rgba(2,4,11,.98));
+      border-radius:22px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:18px 14px 16px;
+      transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      overflow:visible;
+      z-index:2;
+    }
 
-.element:hover{
+    .metal{
+      border:2px solid var(--cyan);
+      box-shadow:0 0 12px rgba(25,240,255,.36), 0 0 42px rgba(25,240,255,.14);
+    }
+    .metalloid{
+      border:2px solid var(--magenta);
+      box-shadow:0 0 12px rgba(255,45,251,.28), 0 0 42px rgba(255,45,251,.12);
+    }
+    .nonmetal{
+      border:2px solid var(--green);
+      box-shadow:0 0 12px rgba(57,255,98,.28), 0 0 42px rgba(57,255,98,.10);
+    }
 
-transform:scale(1.15);
+    .card:hover{
+      transform:translateY(-6px) scale(1.045);
+      z-index:20;
+    }
+    .metal:hover{ box-shadow:0 0 24px rgba(25,240,255,.75), 0 0 70px rgba(25,240,255,.28); }
+    .metalloid:hover{ box-shadow:0 0 24px rgba(255,45,251,.65), 0 0 70px rgba(255,45,251,.20); }
+    .nonmetal:hover{ box-shadow:0 0 24px rgba(57,255,98,.62), 0 0 70px rgba(57,255,98,.20); }
 
-box-shadow:
-0 0 20px #00f7ff,
-0 0 60px #00f7ff,
-0 0 100px #00f7ff;
+    .logo{
+      font-size:30px;
+      font-weight:800;
+      letter-spacing:.5px;
+      margin-bottom:10px;
+      line-height:1;
+      filter:drop-shadow(0 0 10px rgba(255,255,255,.18));
+      white-space:nowrap;
+    }
 
-}
+    .appleLogo,.intelLogo,.samsungLogo,.amazonLogo,.spotifyLogo,.discordLogo,.adobeLogo,.teslaLogo,.netflixLogo,.nvidiaLogo,.microsoftLogo,.googleLogo{
+      color:#ffffff;
+    }
 
-.symbol{
+    .googleLogo span:nth-child(1){color:#4285F4;}
+    .googleLogo span:nth-child(2){color:#EA4335;}
+    .googleLogo span:nth-child(3){color:#FBBC05;}
+    .googleLogo span:nth-child(4){color:#4285F4;}
+    .googleLogo span:nth-child(5){color:#34A853;}
+    .googleLogo span:nth-child(6){color:#EA4335;}
 
-font-size:34px;
-font-weight:700;
-letter-spacing:2px;
+    .microsoftLogo{
+      display:grid;
+      grid-template-columns:18px 18px;
+      grid-template-rows:18px 18px;
+      gap:4px;
+      width:max-content;
+      margin-bottom:12px;
+    }
+    .microsoftLogo div:nth-child(1){background:#f25022;}
+    .microsoftLogo div:nth-child(2){background:#7fba00;}
+    .microsoftLogo div:nth-child(3){background:#00a4ef;}
+    .microsoftLogo div:nth-child(4){background:#ffb900;}
+    .microsoftLogo div{box-shadow:0 0 10px rgba(255,255,255,.14);}
 
-color:#00f7ff;
-text-shadow:0 0 10px #00f7ff;
+    .symbol{
+      font-size:clamp(32px, 3.2vw, 58px);
+      font-weight:900;
+      letter-spacing:1px;
+      color:#ffffff;
+      text-shadow:0 0 16px rgba(255,255,255,.22), 0 0 28px rgba(25,240,255,.18);
+      line-height:1;
+    }
 
-}
+    .name{
+      margin-top:8px;
+      font-size:18px;
+      color:#ffffff;
+      opacity:.96;
+    }
 
-.name{
+    .micro{
+      margin-top:4px;
+      font-size:12px;
+      color:#b9c5d8;
+      opacity:.82;
+      text-align:center;
+    }
 
-font-size:15px;
-opacity:.8;
-margin-top:6px;
+    .tooltip{
+      position:absolute;
+      left:50%;
+      top:calc(100% + 14px);
+      transform:translateX(-50%);
+      width:320px;
+      background:rgba(7,11,22,.98);
+      border:1.5px solid rgba(25,240,255,.75);
+      border-radius:16px;
+      padding:15px 16px;
+      text-align:left;
+      color:#f4f8ff;
+      box-shadow:0 0 26px rgba(25,240,255,.22), 0 18px 50px rgba(0,0,0,.45);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+      z-index:99;
+      font-size:13px;
+      line-height:1.52;
+    }
 
-}
+    .tooltip::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-8px;
+      width:14px;
+      height:14px;
+      background:rgba(7,11,22,.98);
+      border-left:1.5px solid rgba(25,240,255,.75);
+      border-top:1.5px solid rgba(25,240,255,.75);
+      transform:translateX(-50%) rotate(45deg);
+    }
 
-.logo{
+    .card:hover .tooltip{
+      opacity:1;
+      visibility:visible;
+      transform:translateX(-50%) translateY(0);
+    }
 
-width:55px;
-margin-bottom:10px;
+    .tooltip b{color:#ffffff;}
 
-filter:drop-shadow(0 0 8px #00f7ff);
+    .legend{
+      margin:30px auto 18px;
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      color:#edf5ff;
+      font-size:14px;
+    }
 
-}
+    .chip{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(7,11,22,.8);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 0 16px rgba(255,255,255,.04);
+    }
 
-.tooltip{
+    .notes{
+      margin:44px auto 0;
+      max-width:1120px;
+      background:rgba(8,13,26,.72);
+      border:1px solid rgba(25,240,255,.32);
+      border-radius:24px;
+      padding:28px 26px;
+      box-shadow:0 0 24px rgba(25,240,255,.10);
+    }
 
-position:absolute;
+    .notes h2{
+      margin:0 0 16px;
+      color:#ffffff;
+      font-size:28px;
+      text-shadow:0 0 16px rgba(25,240,255,.18);
+    }
 
-top:50%;
-left:110%;
+    .notes-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
 
-transform:translateY(-50%);
+    .note-card{
+      background:rgba(5,9,18,.92);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      padding:16px 16px 14px;
+    }
 
-background:#0b0c15;
-padding:16px;
+    .note-card h3{
+      margin:0 0 8px;
+      font-size:17px;
+      color:#ffffff;
+    }
 
-width:260px;
+    .note-card p{
+      margin:0;
+      color:#d9e2ef;
+      line-height:1.58;
+      font-size:14px;
+    }
 
-border-radius:10px;
+    @media (max-width: 1120px){
+      .group-row,.period-row{grid-template-columns:90px repeat(4, 1fr); gap:12px;}
+      .tooltip{width:280px;}
+    }
 
-font-size:13px;
-line-height:1.6;
-
-border:1px solid #00f7ff;
-
-box-shadow:
-0 0 20px #00f7ff55;
-
-opacity:0;
-pointer-events:none;
-transition:.25s;
-
-}
-
-.element:hover .tooltip{
-
-opacity:1;
-
-}
-
-</style>
-
+    @media (max-width: 900px){
+      .wrap{padding:24px 14px 50px;}
+      .group-row,.period-row{grid-template-columns:1fr 1fr;}
+      .group-row > div:first-child{display:none;}
+      .period-label{min-height:auto;}
+      .notes-grid{grid-template-columns:1fr;}
+      .tooltip{left:50%; right:auto; width:min(90vw, 300px);}
+    }
+  </style>
 </head>
-
 <body>
-
-<h1>TECHNOLOGY ECOSYSTEM</h1>
-
-<div class="table">
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
-
-<div class="symbol">AP</div>
-<div class="name">Apple</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metal (Hardware Manufacturer)<br>
-<b>Group:</b> Consumer Technology Devices<br>
-<b>Radius:</b> Medium ecosystem influence.<br>
-<b>Ionization:</b> Moderately difficult to replace.<br><br>
-
-Apple builds tightly integrated hardware such as iPhones, MacBooks, and wearables. Its ecosystem locks users into a connected device environment.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
-
-<div class="symbol">MS</div>
-<div class="name">Microsoft</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metalloid (Hybrid Infrastructure)<br>
-<b>Group:</b> Platform Software Systems<br>
-<b>Radius:</b> High influence across global computing.<br>
-<b>Ionization:</b> Extremely difficult to replace.<br><br>
-
-Microsoft produces Windows, enterprise tools, and Azure cloud infrastructure, making it one of the central pillars of modern computing.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg">
-
-<div class="symbol">GO</div>
-<div class="name">Google</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Nonmetal (Digital Platform)<br>
-<b>Group:</b> Internet Infrastructure<br>
-<b>Radius:</b> Very high global influence.<br>
-<b>Ionization:</b> Extremely difficult to replace.<br><br>
-
-Google dominates search, advertising, and data infrastructure, acting as one of the largest gateways to information on the internet.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/NVIDIA_logo.svg">
-
-<div class="symbol">NV</div>
-<div class="name">Nvidia</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metal (Hardware Semiconductor)<br>
-<b>Group:</b> AI Computing Hardware<br>
-<b>Radius:</b> Rapidly expanding influence.<br>
-<b>Ionization:</b> Extremely difficult to replace.<br><br>
-
-Nvidia produces GPUs that power artificial intelligence, machine learning, and advanced computing.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg">
-
-<div class="symbol">IN</div>
-<div class="name">Intel</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metal (Semiconductor Manufacturing)<br>
-<b>Group:</b> CPU Architecture<br>
-<b>Radius:</b> Moderate computing influence.<br>
-<b>Ionization:</b> Medium replacement difficulty.<br><br>
-
-Intel built the foundation of modern personal computing through its x86 processors.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
-
-<div class="symbol">AM</div>
-<div class="name">Amazon</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metalloid (Hybrid Cloud Infrastructure)<br>
-<b>Group:</b> Cloud Computing Systems<br>
-<b>Radius:</b> Extremely large technological influence.<br>
-<b>Ionization:</b> Very difficult to replace.<br><br>
-
-Amazon Web Services powers a significant percentage of global internet infrastructure.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg">
-
-<div class="symbol">NF</div>
-<div class="name">Netflix</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Nonmetal (Digital Platform)<br>
-<b>Group:</b> Streaming Media Systems<br>
-<b>Radius:</b> Cultural influence worldwide.<br>
-<b>Ionization:</b> Moderate replacement difficulty.<br><br>
-
-Netflix pioneered large-scale streaming media distribution.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg">
-
-<div class="symbol">TS</div>
-<div class="name">Tesla</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metal (Energy Technology)<br>
-<b>Group:</b> Automotive Innovation<br>
-<b>Radius:</b> Growing industrial influence.<br>
-<b>Ionization:</b> Medium replacement difficulty.<br><br>
-
-Tesla integrates electric vehicles, battery systems, and energy infrastructure.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg">
-
-<div class="symbol">SM</div>
-<div class="name">Samsung</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metal (Electronics Manufacturing)<br>
-<b>Group:</b> Global Device Production<br>
-<b>Radius:</b> Large manufacturing scale.<br>
-<b>Ionization:</b> Moderate replacement difficulty.<br><br>
-
-Samsung produces displays, semiconductors, and consumer electronics globally.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Corporate_Logo.png">
-
-<div class="symbol">AD</div>
-<div class="name">Adobe</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Metalloid (Creative Software)<br>
-<b>Group:</b> Digital Content Creation<br>
-<b>Radius:</b> Strong professional influence.<br>
-<b>Ionization:</b> Very difficult to replace.<br><br>
-
-Adobe tools power design, video editing, photography, and digital creativity worldwide.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg">
-
-<div class="symbol">SP</div>
-<div class="name">Spotify</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Nonmetal (Digital Media Platform)<br>
-<b>Group:</b> Streaming Music Infrastructure<br>
-<b>Radius:</b> Medium cultural influence.<br>
-<b>Ionization:</b> Moderate replacement difficulty.<br><br>
-
-Spotify provides a global ecosystem for music streaming and artist distribution.
-
-</div>
-
-</div>
-
-
-
-<div class="element">
-
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/en/9/98/Discord_logo.svg">
-
-<div class="symbol">DC</div>
-<div class="name">Discord</div>
-
-<div class="tooltip">
-
-<b>Category:</b> Nonmetal (Communication Platform)<br>
-<b>Group:</b> Online Communities<br>
-<b>Radius:</b> Strong community influence.<br>
-<b>Ionization:</b> Moderate replacement difficulty.<br><br>
-
-Discord supports digital communities, gaming groups, and collaborative communication.
-
-</div>
-
-</div>
-
-
-</div>
-
+  <div class="wrap">
+    <h1>TECHNOLOGY ECOSYSTEM</h1>
+    <p class="subtitle">This conceptual periodic table uses technology companies to show how the periodic table is organized by <b>groups</b>, <b>periods</b>, <b>categories</b>, and <b>periodic trends</b>. It follows the project requirements by using a personal-interest theme, three broad categories, and opposite trends for radius and ionization energy.</p>
+
+    <div class="group-row">
+      <div></div>
+      <div class="group-label"><strong>Group 1</strong>Device & chip makers</div>
+      <div class="group-label"><strong>Group 2</strong>Hybrid software & cloud systems</div>
+      <div class="group-label"><strong>Group 3</strong>Digital media / internet platforms</div>
+      <div class="group-label"><strong>Group 4</strong>High-impact specialized tech systems</div>
+    </div>
+
+    <div class="period-row">
+      <div class="period-label"><strong>Period 1</strong>Entry influence<br>smaller ecosystem size</div>
+
+      <div class="card metal">
+        <div class="logo appleLogo"></div>
+        <div class="symbol">AP</div>
+        <div class="name">Apple</div>
+        <div class="micro">Consumer hardware ecosystem</div>
+        <div class="tooltip"><b>Category:</b> Metal<br><b>Family:</b> Device & hardware makers<br><b>Radius:</b> Smaller in this row than the cards below it, because influence increases down a group.<br><b>Ionization:</b> Lower than cards to the right, because ionization increases across a period.<br><br>Apple fits this family because it is built around physical products like phones, laptops, and wearables. In this table it starts the row with a more direct hardware role.</div>
+      </div>
+
+      <div class="card metalloid">
+        <div class="logo microsoftLogo"><div></div><div></div><div></div><div></div></div>
+        <div class="symbol">MS</div>
+        <div class="name">Microsoft</div>
+        <div class="micro">Software + cloud platform</div>
+        <div class="tooltip"><b>Category:</b> Metalloid<br><b>Family:</b> Hybrid software & cloud systems<br><b>Radius:</b> Slightly smaller across the row than Group 1 because radius decreases left to right.<br><b>Ionization:</b> Higher than Apple because it is harder to replace in daily computing and business systems.<br><br>Microsoft is a metalloid because it mixes traits from both sides: software, operating systems, enterprise tools, and cloud infrastructure.</div>
+      </div>
+
+      <div class="card nonmetal">
+        <div class="logo googleLogo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+        <div class="symbol">GO</div>
+        <div class="name">Google</div>
+        <div class="micro">Internet information platform</div>
+        <div class="tooltip"><b>Category:</b> Nonmetal<br><b>Family:</b> Digital platform systems<br><b>Radius:</b> Smaller across the row than earlier groups in this model.<br><b>Ionization:</b> Higher, because digital platforms become harder to replace as you move right.<br><br>Google represents internet search, information access, and large-scale online services. It belongs in a nonmetal-style category because it is mostly a digital platform rather than a physical product maker.</div>
+      </div>
+
+      <div class="card metal">
+        <div class="logo nvidiaLogo">NVIDIA</div>
+        <div class="symbol">NV</div>
+        <div class="name">Nvidia</div>
+        <div class="micro">AI chip specialization</div>
+        <div class="tooltip"><b>Category:</b> Metal<br><b>Family:</b> Specialized high-impact systems<br><b>Radius:</b> Lowest across this row in the left-to-right trend.<br><b>Ionization:</b> Highest in this row because advanced AI hardware is especially difficult to substitute.<br><br>Nvidia is placed at the far right because in this conceptual system its role is highly specialized and valuable, which matches the increasing ionization trend across a period.</div>
+      </div>
+    </div>
+
+    <div class="period-row">
+      <div class="period-label"><strong>Period 2</strong>Growing influence<br>broader system size</div>
+
+      <div class="card metal">
+        <div class="logo intelLogo">intel</div>
+        <div class="symbol">IN</div>
+        <div class="name">Intel</div>
+        <div class="micro">Processor hardware</div>
+        <div class="tooltip"><b>Category:</b> Metal<br><b>Family:</b> Device & chip makers<br><b>Radius:</b> Larger than Apple because radius increases down the group.<br><b>Ionization:</b> Still lower than cards farther right in this row.<br><br>Intel stays in the same family as Apple because it is strongly connected to hardware. Moving downward to period 2 shows a larger scale of computing importance.</div>
+      </div>
+
+      <div class="card metalloid">
+        <div class="logo amazonLogo">amazon</div>
+        <div class="symbol">AM</div>
+        <div class="name">Amazon</div>
+        <div class="micro">AWS cloud infrastructure</div>
+        <div class="tooltip"><b>Category:</b> Metalloid<br><b>Family:</b> Hybrid software & cloud systems<br><b>Radius:</b> Larger than Microsoft because the row below represents more influence.<br><b>Ionization:</b> Higher than Intel but lower than the cards farther right in this period.<br><br>Amazon is best represented through AWS, which makes it a hybrid infrastructure company that connects software, servers, and digital services.</div>
+      </div>
+
+      <div class="card nonmetal">
+        <div class="logo netflixLogo">N</div>
+        <div class="symbol">NF</div>
+        <div class="name">Netflix</div>
+        <div class="micro">Streaming entertainment</div>
+        <div class="tooltip"><b>Category:</b> Nonmetal<br><b>Family:</b> Digital platform systems<br><b>Radius:</b> Larger than Google because it is in a lower period in this conceptual model.<br><b>Ionization:</b> Higher than Amazon because it sits farther right in the row.<br><br>Netflix belongs to the digital platform family because it distributes entertainment through software and network services rather than physical products.</div>
+      </div>
+
+      <div class="card metal">
+        <div class="logo teslaLogo">TESLA</div>
+        <div class="symbol">TS</div>
+        <div class="name">Tesla</div>
+        <div class="micro">EV & energy systems</div>
+        <div class="tooltip"><b>Category:</b> Metal<br><b>Family:</b> Specialized high-impact systems<br><b>Radius:</b> Smaller across the row than Group 3, but larger than Nvidia because it is in a lower period.<br><b>Ionization:</b> Highest in this row.<br><br>Tesla fits the far-right position because its identity combines technology, energy systems, and a distinct industrial role that is hard to replace in the theme.</div>
+      </div>
+    </div>
+
+    <div class="period-row">
+      <div class="period-label"><strong>Period 3</strong>Major influence<br>largest ecosystem size</div>
+
+      <div class="card metal">
+        <div class="logo samsungLogo">SAMSUNG</div>
+        <div class="symbol">SM</div>
+        <div class="name">Samsung</div>
+        <div class="micro">Global electronics scale</div>
+        <div class="tooltip"><b>Category:</b> Metal<br><b>Family:</b> Device & chip makers<br><b>Radius:</b> Larger than Intel and Apple because radius increases downward.<br><b>Ionization:</b> Lower than the cards to the right in the same period.<br><br>Samsung belongs in the hardware family because it manufactures electronics, displays, and components on a huge scale.</div>
+      </div>
+
+      <div class="card metalloid">
+        <div class="logo adobeLogo">Adobe</div>
+        <div class="symbol">AD</div>
+        <div class="name">Adobe</div>
+        <div class="micro">Creative software ecosystem</div>
+        <div class="tooltip"><b>Category:</b> Metalloid<br><b>Family:</b> Hybrid software & cloud systems<br><b>Radius:</b> Larger than Amazon and Microsoft because it is lower in the group.<br><b>Ionization:</b> Higher than Samsung because it is farther right across the row.<br><br>Adobe is a hybrid-style company because it is software-focused but supports a huge creative production system used across industries.</div>
+      </div>
+
+      <div class="card nonmetal">
+        <div class="logo spotifyLogo">Spotify</div>
+        <div class="symbol">SP</div>
+        <div class="name">Spotify</div>
+        <div class="micro">Music streaming network</div>
+        <div class="tooltip"><b>Category:</b> Nonmetal<br><b>Family:</b> Digital platform systems<br><b>Radius:</b> Larger than Netflix and Google in the downward trend.<br><b>Ionization:</b> Higher than Adobe because it is farther right across period 3.<br><br>Spotify fits the digital platform family because it connects users and media through an online service rather than a physical device system.</div>
+      </div>
+
+      <div class="card nonmetal">
+        <div class="logo discordLogo">Discord</div>
+        <div class="symbol">DC</div>
+        <div class="name">Discord</div>
+        <div class="micro">Community communication platform</div>
+        <div class="tooltip"><b>Category:</b> Nonmetal<br><b>Family:</b> Specialized high-impact systems<br><b>Radius:</b> Lowest across this row but still larger than above because it is in a lower period.<br><b>Ionization:</b> Highest across the row.<br><br>Discord is placed on the far right because it represents a highly specialized communication platform with a distinct role and strong user attachment, which matches the highest ionization in this row.</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="chip">Metals = hardware / physical technology</div>
+      <div class="chip">Metalloids = hybrid systems connecting hardware and software</div>
+      <div class="chip">Nonmetals = digital platforms and online services</div>
+    </div>
+
+    <section class="notes">
+      <h2>Required Explanation Notes</h2>
+      <div class="notes-grid">
+        <div class="note-card">
+          <h3>1. How I organized my groups and periods</h3>
+          <p>The groups are organized by shared technological properties. Group 1 contains hardware and device companies, Group 2 contains hybrid software and cloud systems, Group 3 contains digital media and internet platforms, and Group 4 contains specialized high-impact tech systems. The periods show increasing influence and ecosystem size as you move downward.</p>
+        </div>
+        <div class="note-card">
+          <h3>2. How I represented metals, nonmetals, and metalloids</h3>
+          <p>Metals represent physical technology and hardware-oriented companies. Metalloids represent companies that combine traits from both sides by connecting software, cloud systems, and infrastructure. Nonmetals represent digital platforms and online services that are less physical and more service-based.</p>
+        </div>
+        <div class="note-card">
+          <h3>3. How radius trends in my table</h3>
+          <p>Radius represents technological influence or ecosystem size. It increases down a group, so companies lower in the same column have a larger conceptual radius. It decreases across a period from left to right, so items at the left side of a row have the broadest radius within that row.</p>
+        </div>
+        <div class="note-card">
+          <h3>4. How ionization energy trends in my table</h3>
+          <p>Ionization energy represents how hard a company or platform is to replace. It increases across a period from left to right, so companies on the right are harder to remove from the system. It decreases down a group, which makes it opposite to the radius trend just like in the real periodic table.</p>
+        </div>
+        <div class="note-card" style="grid-column:1 / -1;">
+          <h3>5. Why my system makes sense</h3>
+          <p>This system makes sense because it mirrors the logic of the real periodic table instead of copying real chemistry facts. The columns act like families because the companies in each group share similar roles. The rows act like periods because they show a steady increase in influence. The three broad categories mirror metals, metalloids, and nonmetals, and the table also includes two opposite trends: radius and ionization energy. That shows I understand how the periodic table is structured even though the theme is completely conceptual.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
