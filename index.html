@@ -2,109 +2,132 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Conceptual Periodic Table — Tech Ecosystem</title>
+<title>Technology Ecosystem — Conceptual Periodic Table</title>
 
 <style>
 
 body{
-background:#07080d;
-font-family:Arial, Helvetica, sans-serif;
+background: radial-gradient(circle at top,#0a0b14,#02030a);
+font-family:"Segoe UI",Roboto,Arial;
 color:white;
 text-align:center;
+margin:0;
 }
 
 h1{
-margin-top:30px;
-font-size:36px;
-letter-spacing:2px;
+margin-top:40px;
+font-size:42px;
+letter-spacing:3px;
+font-weight:600;
 }
 
 .subtitle{
-opacity:.7;
-margin-bottom:40px;
+opacity:.75;
+margin-bottom:50px;
+font-size:16px;
 }
 
 .table{
 display:grid;
-grid-template-columns:repeat(4,150px);
-grid-gap:20px;
+grid-template-columns:repeat(4,170px);
+grid-gap:28px;
 justify-content:center;
+padding-bottom:30px;
 }
 
 .element{
 position:relative;
-width:150px;
-height:150px;
-background:#0f111a;
-border:2px solid #00f7ff;
-border-radius:8px;
-box-shadow:0 0 8px #00f7ff;
-transition:.25s;
+width:170px;
+height:170px;
+background:linear-gradient(145deg,#0c0e1a,#05060d);
+border-radius:12px;
+padding:10px;
+transition:all .25s ease;
 cursor:pointer;
+box-shadow:0 0 12px rgba(0,255,255,.4);
+overflow:hidden;
 }
 
 .element:hover{
-transform:scale(1.1);
-box-shadow:0 0 20px #00f7ff,0 0 40px #00f7ff;
-z-index:10;
-}
-
-.number{
-position:absolute;
-top:6px;
-right:8px;
-font-size:12px;
-opacity:.7;
+transform:scale(1.12);
+box-shadow:0 0 25px #00f7ff,0 0 50px #00f7ff,0 0 80px rgba(0,255,255,.5);
+z-index:20;
 }
 
 .symbol{
-font-size:32px;
-font-weight:bold;
-margin-top:40px;
+font-size:30px;
+font-weight:700;
+margin-top:8px;
+}
+
+.logo{
+width:42px;
+height:42px;
+margin-top:18px;
+filter:drop-shadow(0 0 6px #00f7ff);
 }
 
 .name{
-font-size:13px;
+font-size:14px;
+margin-top:6px;
 opacity:.85;
 }
 
-.category-metal{ border-color:#00f7ff; }
-.category-metalloid{ border-color:#ff00ff; }
-.category-nonmetal{ border-color:#39ff14; }
+.category-metal{
+border:2px solid #00f7ff;
+}
+
+.category-metalloid{
+border:2px solid #ff00ff;
+}
+
+.category-nonmetal{
+border:2px solid #39ff14;
+}
 
 .tooltip{
 visibility:hidden;
+opacity:0;
 position:absolute;
-bottom:-120px;
+bottom:-140px;
 left:50%;
 transform:translateX(-50%);
-background:#111;
-padding:10px;
-width:200px;
-border-radius:6px;
+background:#0c0d16;
+padding:14px;
+width:240px;
+border-radius:8px;
 font-size:12px;
-box-shadow:0 0 10px #000;
+line-height:1.5;
+box-shadow:0 0 20px rgba(0,0,0,.6);
+transition:.25s;
 }
 
 .element:hover .tooltip{
 visibility:visible;
+opacity:1;
 }
 
 .legend{
 margin-top:50px;
 font-size:14px;
+opacity:.9;
 }
 
 .legend span{
-margin:0 15px;
+margin:0 16px;
 }
 
 .notes{
-max-width:800px;
-margin:60px auto;
+max-width:900px;
+margin:70px auto;
 text-align:left;
-line-height:1.6;
+line-height:1.7;
+font-size:15px;
 opacity:.9;
+}
+
+.notes h2{
+margin-top:0;
 }
 
 </style>
@@ -112,123 +135,123 @@ opacity:.9;
 
 <body>
 
-<h1>TECH ECOSYSTEM PERIODIC TABLE</h1>
-<p class="subtitle">A conceptual periodic table showing how technology companies organize into groups, periods, and trends.</p>
+<h1>TECHNOLOGY ECOSYSTEM TABLE</h1>
+<p class="subtitle">A conceptual periodic table demonstrating technological systems organized into groups, periods, and trends.</p>
 
 <div class="table">
 
 <div class="element category-metal">
-<div class="number">1</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg">
 <div class="symbol">AP</div>
 <div class="name">Apple</div>
-<div class="tooltip">Hardware ecosystem leader. High device integration and consumer influence.</div>
+<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Consumer Device Manufacturers<br><b>Radius:</b> Medium technological influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Apple represents a tightly integrated hardware ecosystem focused on consumer electronics such as phones, laptops, and wearables.</div>
 </div>
 
 <div class="element category-metalloid">
-<div class="number">2</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg">
 <div class="symbol">MS</div>
 <div class="name">Microsoft</div>
-<div class="tooltip">Hybrid company combining operating systems, enterprise software, and cloud infrastructure.</div>
+<div class="tooltip"><b>Category:</b> Metalloid (Hybrid)<br><b>Family:</b> Platform Software Providers<br><b>Radius:</b> High influence through operating systems.<br><b>Ionization:</b> Very difficult to replace.<br><br>Microsoft combines operating systems, enterprise software, and cloud services, making it both infrastructure and platform.</div>
 </div>
 
 <div class="element category-nonmetal">
-<div class="number">3</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
 <div class="symbol">GO</div>
 <div class="name">Google</div>
-<div class="tooltip">Dominant internet platform controlling search, advertising, and global data services.</div>
+<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Internet Infrastructure Platforms<br><b>Radius:</b> Very high global influence.<br><b>Ionization:</b> Extremely difficult to replace.<br><br>Google dominates search, advertising, and internet services, functioning as a major gateway to global information.</div>
 </div>
 
 <div class="element category-metal">
-<div class="number">4</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg">
 <div class="symbol">NV</div>
 <div class="name">Nvidia</div>
-<div class="tooltip">Critical hardware infrastructure for AI and advanced computing systems.</div>
+<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Semiconductor Designers<br><b>Radius:</b> Rapidly increasing technological impact.<br><b>Ionization:</b> Very hard to replace in AI computing.<br><br>Nvidia designs GPUs that power artificial intelligence, machine learning, and advanced computing systems.</div>
 </div>
 
 <div class="element category-metal">
-<div class="number">5</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intel/intel-original.svg">
 <div class="symbol">IN</div>
 <div class="name">Intel</div>
-<div class="tooltip">CPU manufacturer responsible for decades of computing hardware innovation.</div>
+<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Semiconductor Manufacturers<br><b>Radius:</b> Moderate hardware influence.<br><b>Ionization:</b> Medium replacement difficulty.<br><br>Intel historically built the CPU backbone of personal computing systems.</div>
 </div>
 
 <div class="element category-metalloid">
-<div class="number">6</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
 <div class="symbol">AM</div>
 <div class="name">Amazon</div>
-<div class="tooltip">E-commerce giant with massive cloud computing infrastructure through AWS.</div>
+<div class="tooltip"><b>Category:</b> Metalloid (Hybrid)<br><b>Family:</b> Cloud Infrastructure Providers<br><b>Radius:</b> Extremely large infrastructure influence.<br><b>Ionization:</b> Very difficult to replace due to AWS dominance.<br><br>Amazon Web Services forms a major part of global cloud computing infrastructure.</div>
 </div>
 
 <div class="element category-nonmetal">
-<div class="number">7</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg">
 <div class="symbol">NF</div>
 <div class="name">Netflix</div>
-<div class="tooltip">Digital streaming platform representing entertainment distribution.</div>
+<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Media Streaming Systems<br><b>Radius:</b> Medium global cultural influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Netflix transformed media distribution by pioneering large‑scale streaming entertainment platforms.</div>
 </div>
 
 <div class="element category-metal">
-<div class="number">8</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tesla/tesla-original.svg">
 <div class="symbol">TS</div>
 <div class="name">Tesla</div>
-<div class="tooltip">Electric vehicle and battery manufacturer driving energy technology innovation.</div>
+<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Energy & Automotive Technology<br><b>Radius:</b> Increasing global industrial influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Tesla integrates battery technology, vehicles, and energy infrastructure.</div>
 </div>
 
 <div class="element category-metal">
-<div class="number">9</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/samsung/samsung-original.svg">
 <div class="symbol">SM</div>
 <div class="name">Samsung</div>
-<div class="tooltip">Major global electronics manufacturer producing phones, displays, and semiconductors.</div>
+<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Electronics Manufacturers<br><b>Radius:</b> Large manufacturing scale.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Samsung produces semiconductors, displays, and smartphones at global scale.</div>
 </div>
 
 <div class="element category-metalloid">
-<div class="number">10</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
 <div class="symbol">AD</div>
 <div class="name">Adobe</div>
-<div class="tooltip">Creative software platform used globally in design, media, and digital production.</div>
+<div class="tooltip"><b>Category:</b> Metalloid (Hybrid Software Platform)<br><b>Family:</b> Creative Software Systems<br><b>Radius:</b> Medium professional influence.<br><b>Ionization:</b> Hard to replace in design industries.<br><br>Adobe tools power the global digital creative economy.</div>
 </div>
 
 <div class="element category-nonmetal">
-<div class="number">11</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg">
 <div class="symbol">SP</div>
 <div class="name">Spotify</div>
-<div class="tooltip">Music streaming platform that reshaped digital media distribution.</div>
+<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Streaming Media Platforms<br><b>Radius:</b> Medium cultural influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Spotify provides a global music streaming ecosystem.</div>
 </div>
 
 <div class="element category-nonmetal">
-<div class="number">12</div>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg">
 <div class="symbol">DC</div>
 <div class="name">Discord</div>
-<div class="tooltip">Communication platform used widely in gaming, communities, and online collaboration.</div>
+<div class="tooltip"><b>Category:</b> Nonmetal (Communication Platform)<br><b>Family:</b> Digital Communities<br><b>Radius:</b> Strong influence in online communities.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Discord provides communication infrastructure for gaming, education, and digital collaboration.</div>
 </div>
 
 </div>
 
 <div class="legend">
-<span style="color:#00f7ff">■ Metals (Hardware / Devices)</span>
-<span style="color:#ff00ff">■ Metalloids (Hybrid Hardware + Software)</span>
-<span style="color:#39ff14">■ Nonmetals (Digital Platforms)</span>
+<span style="color:#00f7ff">■ Metals — Hardware / Physical Technology</span>
+<span style="color:#ff00ff">■ Metalloids — Hybrid Hardware + Software Platforms</span>
+<span style="color:#39ff14">■ Nonmetals — Digital Platforms & Online Services</span>
 </div>
 
 <div class="notes">
-<h2>Explanation of Organization</h2>
+<h2>Conceptual Organization</h2>
 
 <p><b>Groups (Columns)</b><br>
-Each column represents a family of technology systems with similar properties. Hardware manufacturers such as Apple, Nvidia, and Samsung behave similarly because they build physical infrastructure. Hybrid companies like Microsoft or Amazon combine hardware systems with large-scale software services. Digital platforms such as Netflix or Spotify primarily exist as software ecosystems.</p>
+Companies in the same column share similar technological roles. Hardware companies form one family, hybrid infrastructure companies form another, and digital platforms form a third. This mirrors how elements in the periodic table share chemical properties within groups.</p>
 
 <p><b>Periods (Rows)</b><br>
-Rows represent increasing technological influence and scale. Companies lower in the table represent larger infrastructure or broader technological impact globally.</p>
+Rows represent increasing technological scale and global impact. Companies higher in the table operate on smaller ecosystems, while those lower in the table influence larger global systems.</p>
 
 <p><b>Categories</b><br>
-Metals represent hardware systems and physical technology. Metalloids represent hybrid companies that connect hardware and software ecosystems. Nonmetals represent digital platforms and software services.</p>
+Metals represent hardware‑focused technology. Metalloids represent hybrid systems combining hardware and software infrastructure. Nonmetals represent digital platforms and online services.</p>
 
-<p><b>Atomic Radius Trend</b><br>
-In this conceptual system radius represents technological influence. Influence increases down the table because companies lower in the system operate at larger global scale.</p>
+<p><b>Radius Trend</b><br>
+Radius represents technological influence or ecosystem size. Influence increases down the table as companies operate at larger global scales.</p>
 
 <p><b>Ionization Energy Trend</b><br>
-Ionization energy represents how difficult a company would be to replace within the technology ecosystem. It increases across the table from left to right because platforms become more unique and harder to substitute.</p>
+Ionization energy represents how difficult a technology platform would be to replace. It increases across the table from left to right as systems become more unique and specialized.</p>
 
 <p><b>Why the System Works</b><br>
-This structure mirrors the real periodic table by organizing items into families, arranging rows by increasing magnitude, separating categories, and demonstrating two opposing trends similar to atomic radius and ionization energy.</p>
+The system mirrors the logic of the periodic table by organizing companies into families with shared properties, arranging rows by increasing magnitude, separating broad categories, and demonstrating opposing periodic trends.</p>
 
 </div>
 
