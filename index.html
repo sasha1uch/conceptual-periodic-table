@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Technology Ecosystem — Conceptual Periodic Table</title>
+
+<title>Technology Ecosystem Periodic Table</title>
 
 <style>
 
 body{
-background: radial-gradient(circle at top,#0a0b14,#02030a);
-font-family:"Segoe UI",Roboto,Arial;
+background:#01020a;
+font-family:Segoe UI,Arial;
 color:white;
 text-align:center;
 margin:0;
@@ -16,242 +16,392 @@ margin:0;
 
 h1{
 margin-top:40px;
-font-size:42px;
+font-size:44px;
 letter-spacing:3px;
-font-weight:600;
-}
-
-.subtitle{
-opacity:.75;
-margin-bottom:50px;
-font-size:16px;
+color:#00f7ff;
+text-shadow:0 0 20px #00f7ff;
 }
 
 .table{
+
 display:grid;
-grid-template-columns:repeat(4,170px);
-grid-gap:28px;
+grid-template-columns:repeat(4,180px);
+gap:35px;
 justify-content:center;
-padding-bottom:30px;
+margin-top:60px;
+
 }
 
 .element{
+
 position:relative;
-width:170px;
-height:170px;
-background:linear-gradient(145deg,#0c0e1a,#05060d);
+width:180px;
+height:180px;
+background:#02030a;
 border-radius:12px;
-padding:10px;
-transition:all .25s ease;
+border:2px solid #00f7ff;
+transition:.3s;
 cursor:pointer;
-box-shadow:0 0 12px rgba(0,255,255,.4);
-overflow:hidden;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+0 0 15px #00f7ff55,
+0 0 40px #00f7ff22;
+
 }
 
 .element:hover{
-transform:scale(1.12);
-box-shadow:0 0 25px #00f7ff,0 0 50px #00f7ff,0 0 80px rgba(0,255,255,.5);
-z-index:20;
+
+transform:scale(1.15);
+
+box-shadow:
+0 0 20px #00f7ff,
+0 0 60px #00f7ff,
+0 0 100px #00f7ff;
+
 }
 
 .symbol{
-font-size:30px;
-font-weight:700;
-margin-top:8px;
-}
 
-.logo{
-width:42px;
-height:42px;
-margin-top:18px;
-filter:drop-shadow(0 0 6px #00f7ff);
+font-size:34px;
+font-weight:700;
+letter-spacing:2px;
+
+color:#00f7ff;
+text-shadow:0 0 10px #00f7ff;
+
 }
 
 .name{
-font-size:14px;
+
+font-size:15px;
+opacity:.8;
 margin-top:6px;
-opacity:.85;
+
 }
 
-.category-metal{
-border:2px solid #00f7ff;
-}
+.logo{
 
-.category-metalloid{
-border:2px solid #ff00ff;
-}
+width:55px;
+margin-bottom:10px;
 
-.category-nonmetal{
-border:2px solid #39ff14;
+filter:drop-shadow(0 0 8px #00f7ff);
+
 }
 
 .tooltip{
-visibility:hidden;
-opacity:0;
+
 position:absolute;
-bottom:-140px;
-left:50%;
-transform:translateX(-50%);
-background:#0c0d16;
-padding:14px;
-width:240px;
-border-radius:8px;
-font-size:12px;
-line-height:1.5;
-box-shadow:0 0 20px rgba(0,0,0,.6);
+
+top:50%;
+left:110%;
+
+transform:translateY(-50%);
+
+background:#0b0c15;
+padding:16px;
+
+width:260px;
+
+border-radius:10px;
+
+font-size:13px;
+line-height:1.6;
+
+border:1px solid #00f7ff;
+
+box-shadow:
+0 0 20px #00f7ff55;
+
+opacity:0;
+pointer-events:none;
 transition:.25s;
+
 }
 
 .element:hover .tooltip{
-visibility:visible;
+
 opacity:1;
-}
 
-.legend{
-margin-top:50px;
-font-size:14px;
-opacity:.9;
-}
-
-.legend span{
-margin:0 16px;
-}
-
-.notes{
-max-width:900px;
-margin:70px auto;
-text-align:left;
-line-height:1.7;
-font-size:15px;
-opacity:.9;
-}
-
-.notes h2{
-margin-top:0;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<h1>TECHNOLOGY ECOSYSTEM TABLE</h1>
-<p class="subtitle">A conceptual periodic table demonstrating technological systems organized into groups, periods, and trends.</p>
+<h1>TECHNOLOGY ECOSYSTEM</h1>
 
 <div class="table">
 
-<div class="element category-metal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg">
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
 <div class="symbol">AP</div>
 <div class="name">Apple</div>
-<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Consumer Device Manufacturers<br><b>Radius:</b> Medium technological influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Apple represents a tightly integrated hardware ecosystem focused on consumer electronics such as phones, laptops, and wearables.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metal (Hardware Manufacturer)<br>
+<b>Group:</b> Consumer Technology Devices<br>
+<b>Radius:</b> Medium ecosystem influence.<br>
+<b>Ionization:</b> Moderately difficult to replace.<br><br>
+
+Apple builds tightly integrated hardware such as iPhones, MacBooks, and wearables. Its ecosystem locks users into a connected device environment.
+
 </div>
 
-<div class="element category-metalloid">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
+
 <div class="symbol">MS</div>
 <div class="name">Microsoft</div>
-<div class="tooltip"><b>Category:</b> Metalloid (Hybrid)<br><b>Family:</b> Platform Software Providers<br><b>Radius:</b> High influence through operating systems.<br><b>Ionization:</b> Very difficult to replace.<br><br>Microsoft combines operating systems, enterprise software, and cloud services, making it both infrastructure and platform.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metalloid (Hybrid Infrastructure)<br>
+<b>Group:</b> Platform Software Systems<br>
+<b>Radius:</b> High influence across global computing.<br>
+<b>Ionization:</b> Extremely difficult to replace.<br><br>
+
+Microsoft produces Windows, enterprise tools, and Azure cloud infrastructure, making it one of the central pillars of modern computing.
+
 </div>
 
-<div class="element category-nonmetal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg">
+
 <div class="symbol">GO</div>
 <div class="name">Google</div>
-<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Internet Infrastructure Platforms<br><b>Radius:</b> Very high global influence.<br><b>Ionization:</b> Extremely difficult to replace.<br><br>Google dominates search, advertising, and internet services, functioning as a major gateway to global information.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Nonmetal (Digital Platform)<br>
+<b>Group:</b> Internet Infrastructure<br>
+<b>Radius:</b> Very high global influence.<br>
+<b>Ionization:</b> Extremely difficult to replace.<br><br>
+
+Google dominates search, advertising, and data infrastructure, acting as one of the largest gateways to information on the internet.
+
 </div>
 
-<div class="element category-metal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/NVIDIA_logo.svg">
+
 <div class="symbol">NV</div>
 <div class="name">Nvidia</div>
-<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Semiconductor Designers<br><b>Radius:</b> Rapidly increasing technological impact.<br><b>Ionization:</b> Very hard to replace in AI computing.<br><br>Nvidia designs GPUs that power artificial intelligence, machine learning, and advanced computing systems.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metal (Hardware Semiconductor)<br>
+<b>Group:</b> AI Computing Hardware<br>
+<b>Radius:</b> Rapidly expanding influence.<br>
+<b>Ionization:</b> Extremely difficult to replace.<br><br>
+
+Nvidia produces GPUs that power artificial intelligence, machine learning, and advanced computing.
+
 </div>
 
-<div class="element category-metal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intel/intel-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg">
+
 <div class="symbol">IN</div>
 <div class="name">Intel</div>
-<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Semiconductor Manufacturers<br><b>Radius:</b> Moderate hardware influence.<br><b>Ionization:</b> Medium replacement difficulty.<br><br>Intel historically built the CPU backbone of personal computing systems.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metal (Semiconductor Manufacturing)<br>
+<b>Group:</b> CPU Architecture<br>
+<b>Radius:</b> Moderate computing influence.<br>
+<b>Ionization:</b> Medium replacement difficulty.<br><br>
+
+Intel built the foundation of modern personal computing through its x86 processors.
+
 </div>
 
-<div class="element category-metalloid">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
+
 <div class="symbol">AM</div>
 <div class="name">Amazon</div>
-<div class="tooltip"><b>Category:</b> Metalloid (Hybrid)<br><b>Family:</b> Cloud Infrastructure Providers<br><b>Radius:</b> Extremely large infrastructure influence.<br><b>Ionization:</b> Very difficult to replace due to AWS dominance.<br><br>Amazon Web Services forms a major part of global cloud computing infrastructure.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metalloid (Hybrid Cloud Infrastructure)<br>
+<b>Group:</b> Cloud Computing Systems<br>
+<b>Radius:</b> Extremely large technological influence.<br>
+<b>Ionization:</b> Very difficult to replace.<br><br>
+
+Amazon Web Services powers a significant percentage of global internet infrastructure.
+
 </div>
 
-<div class="element category-nonmetal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg">
+
 <div class="symbol">NF</div>
 <div class="name">Netflix</div>
-<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Media Streaming Systems<br><b>Radius:</b> Medium global cultural influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Netflix transformed media distribution by pioneering large‑scale streaming entertainment platforms.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Nonmetal (Digital Platform)<br>
+<b>Group:</b> Streaming Media Systems<br>
+<b>Radius:</b> Cultural influence worldwide.<br>
+<b>Ionization:</b> Moderate replacement difficulty.<br><br>
+
+Netflix pioneered large-scale streaming media distribution.
+
 </div>
 
-<div class="element category-metal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tesla/tesla-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg">
+
 <div class="symbol">TS</div>
 <div class="name">Tesla</div>
-<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Energy & Automotive Technology<br><b>Radius:</b> Increasing global industrial influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Tesla integrates battery technology, vehicles, and energy infrastructure.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metal (Energy Technology)<br>
+<b>Group:</b> Automotive Innovation<br>
+<b>Radius:</b> Growing industrial influence.<br>
+<b>Ionization:</b> Medium replacement difficulty.<br><br>
+
+Tesla integrates electric vehicles, battery systems, and energy infrastructure.
+
 </div>
 
-<div class="element category-metal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/samsung/samsung-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg">
+
 <div class="symbol">SM</div>
 <div class="name">Samsung</div>
-<div class="tooltip"><b>Category:</b> Metal (Hardware)<br><b>Family:</b> Electronics Manufacturers<br><b>Radius:</b> Large manufacturing scale.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Samsung produces semiconductors, displays, and smartphones at global scale.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metal (Electronics Manufacturing)<br>
+<b>Group:</b> Global Device Production<br>
+<b>Radius:</b> Large manufacturing scale.<br>
+<b>Ionization:</b> Moderate replacement difficulty.<br><br>
+
+Samsung produces displays, semiconductors, and consumer electronics globally.
+
 </div>
 
-<div class="element category-metalloid">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Corporate_Logo.png">
+
 <div class="symbol">AD</div>
 <div class="name">Adobe</div>
-<div class="tooltip"><b>Category:</b> Metalloid (Hybrid Software Platform)<br><b>Family:</b> Creative Software Systems<br><b>Radius:</b> Medium professional influence.<br><b>Ionization:</b> Hard to replace in design industries.<br><br>Adobe tools power the global digital creative economy.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Metalloid (Creative Software)<br>
+<b>Group:</b> Digital Content Creation<br>
+<b>Radius:</b> Strong professional influence.<br>
+<b>Ionization:</b> Very difficult to replace.<br><br>
+
+Adobe tools power design, video editing, photography, and digital creativity worldwide.
+
 </div>
 
-<div class="element category-nonmetal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg">
+
 <div class="symbol">SP</div>
 <div class="name">Spotify</div>
-<div class="tooltip"><b>Category:</b> Nonmetal (Digital Platform)<br><b>Family:</b> Streaming Media Platforms<br><b>Radius:</b> Medium cultural influence.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Spotify provides a global music streaming ecosystem.</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Nonmetal (Digital Media Platform)<br>
+<b>Group:</b> Streaming Music Infrastructure<br>
+<b>Radius:</b> Medium cultural influence.<br>
+<b>Ionization:</b> Moderate replacement difficulty.<br><br>
+
+Spotify provides a global ecosystem for music streaming and artist distribution.
+
 </div>
 
-<div class="element category-nonmetal">
-<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg">
+</div>
+
+
+
+<div class="element">
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/en/9/98/Discord_logo.svg">
+
 <div class="symbol">DC</div>
 <div class="name">Discord</div>
-<div class="tooltip"><b>Category:</b> Nonmetal (Communication Platform)<br><b>Family:</b> Digital Communities<br><b>Radius:</b> Strong influence in online communities.<br><b>Ionization:</b> Moderate replacement difficulty.<br><br>Discord provides communication infrastructure for gaming, education, and digital collaboration.</div>
-</div>
+
+<div class="tooltip">
+
+<b>Category:</b> Nonmetal (Communication Platform)<br>
+<b>Group:</b> Online Communities<br>
+<b>Radius:</b> Strong community influence.<br>
+<b>Ionization:</b> Moderate replacement difficulty.<br><br>
+
+Discord supports digital communities, gaming groups, and collaborative communication.
 
 </div>
 
-<div class="legend">
-<span style="color:#00f7ff">■ Metals — Hardware / Physical Technology</span>
-<span style="color:#ff00ff">■ Metalloids — Hybrid Hardware + Software Platforms</span>
-<span style="color:#39ff14">■ Nonmetals — Digital Platforms & Online Services</span>
 </div>
 
-<div class="notes">
-<h2>Conceptual Organization</h2>
-
-<p><b>Groups (Columns)</b><br>
-Companies in the same column share similar technological roles. Hardware companies form one family, hybrid infrastructure companies form another, and digital platforms form a third. This mirrors how elements in the periodic table share chemical properties within groups.</p>
-
-<p><b>Periods (Rows)</b><br>
-Rows represent increasing technological scale and global impact. Companies higher in the table operate on smaller ecosystems, while those lower in the table influence larger global systems.</p>
-
-<p><b>Categories</b><br>
-Metals represent hardware‑focused technology. Metalloids represent hybrid systems combining hardware and software infrastructure. Nonmetals represent digital platforms and online services.</p>
-
-<p><b>Radius Trend</b><br>
-Radius represents technological influence or ecosystem size. Influence increases down the table as companies operate at larger global scales.</p>
-
-<p><b>Ionization Energy Trend</b><br>
-Ionization energy represents how difficult a technology platform would be to replace. It increases across the table from left to right as systems become more unique and specialized.</p>
-
-<p><b>Why the System Works</b><br>
-The system mirrors the logic of the periodic table by organizing companies into families with shared properties, arranging rows by increasing magnitude, separating broad categories, and demonstrating opposing periodic trends.</p>
 
 </div>
 
