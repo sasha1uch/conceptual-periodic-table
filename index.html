@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conceptual Periodic Table</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+}
+
+td{
+width:120px;
+height:100px;
+border:2px solid black;
+cursor:pointer;
+}
+
+.metals{
+background:#87CEFA;
+}
+
+.metalloids{
+background:#caa6ff;
+}
+
+.nonmetals{
+background:#90EE90;
+}
+
+#info{
+margin-top:40px;
+padding:20px;
+background:white;
+width:500px;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Brawl Stars Conceptual Periodic Table</h1>
+
+<table>
+
+<tr>
+<td class="metals" onclick="show('Shelly','Damage dealer with strong direct attacks')">Shelly</td>
+<td class="metalloids" onclick="show('Poco','Support brawler who heals teammates')">Poco</td>
+<td class="nonmetals" onclick="show('Barley','Control brawler that denies area')">Barley</td>
+<td class="metals" onclick="show('Bull','Tank with high health and close range damage')">Bull</td>
+</tr>
+
+<tr>
+<td class="metals" onclick="show('Nita','Damage dealer that summons a bear')">Nita</td>
+<td class="metalloids" onclick="show('Byron','Hybrid support and damage')">Byron</td>
+<td class="nonmetals" onclick="show('Tick','Area denial thrower')">Tick</td>
+<td class="metals" onclick="show('Rosa','Tank with strong defense ability')">Rosa</td>
+</tr>
+
+<tr>
+<td class="metals" onclick="show('Colt','High skill damage dealer')">Colt</td>
+<td class="metalloids" onclick="show('Pam','Support healer turret')">Pam</td>
+<td class="nonmetals" onclick="show('Squeak','Sticky bombs for control')">Squeak</td>
+<td class="metals" onclick="show('Frank','Heavy tank with stun ability')">Frank</td>
+</tr>
+
+<tr>
+<td class="metals" onclick="show('Janet','High mobility damage dealer')">Janet</td>
+<td class="metalloids" onclick="show('Max','Speed boosting support')">Max</td>
+<td class="nonmetals" onclick="show('Lou','Freezing control brawler')">Lou</td>
+<td class="metals" onclick="show('Ash','Tank that grows stronger with rage')">Ash</td>
+</tr>
+
+<tr>
+<td class="metals" onclick="show('Spike','Legendary high impact damage dealer')">Spike</td>
+<td class="metalloids" onclick="show('Doug','Support who revives teammates')">Doug</td>
+<td class="nonmetals" onclick="show('Cordelius','Isolates enemies in shadow realm')">Cordelius</td>
+<td class="metals" onclick="show('Buster','Protective tank support')">Buster</td>
+</tr>
+
+</table>
+
+<div id="info">
+Click any element to see information
+</div>
+
+<script>
+
+function show(name,description){
+
+document.getElementById("info").innerHTML =
+"<h2>"+name+"</h2><p>"+description+"</p>";
+
+}
+
+</script>
+
+</body>
+</html>
