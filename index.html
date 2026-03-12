@@ -163,6 +163,17 @@
       color:#ffffff;
     }
 
+    .appleLogo{font-size:42px;}
+    .intelLogo{font-size:22px;font-weight:800;letter-spacing:.5px;}
+    .samsungLogo{font-size:18px;font-weight:800;letter-spacing:1.2px;}
+    .amazonLogo{font-size:22px;font-weight:800;letter-spacing:.2px;}
+    .adobeLogo{font-size:26px;font-weight:900;letter-spacing:.4px;}
+    .spotifyLogo{font-size:24px;font-weight:800;}
+    .discordLogo{font-size:22px;font-weight:800;}
+    .nvidiaLogo{font-size:22px;font-weight:900;letter-spacing:.6px;}
+    .teslaLogo{font-size:26px;font-weight:900;letter-spacing:2px;}
+    .netflixLogo{font-size:64px;font-weight:900;color:#e50914;line-height:.95;text-shadow:0 0 12px rgba(229,9,20,.35);}
+
     .googleLogo span:nth-child(1){color:#4285F4;}
     .googleLogo span:nth-child(2){color:#EA4335;}
     .googleLogo span:nth-child(3){color:#FBBC05;}
@@ -211,23 +222,23 @@
     .tooltip{
       position:absolute;
       left:50%;
-      top:calc(100% + 14px);
+      top:calc(100% + 18px);
       transform:translateX(-50%);
-      width:320px;
-      background:rgba(7,11,22,.98);
-      border:1.5px solid rgba(25,240,255,.75);
-      border-radius:16px;
-      padding:15px 16px;
+      width:340px;
+      background:rgba(7,11,22,.995);
+      border:2px solid rgba(25,240,255,.9);
+      border-radius:18px;
+      padding:16px 18px;
       text-align:left;
-      color:#f4f8ff;
-      box-shadow:0 0 26px rgba(25,240,255,.22), 0 18px 50px rgba(0,0,0,.45);
+      color:#f8fbff;
+      box-shadow:0 0 28px rgba(25,240,255,.22), 0 22px 60px rgba(0,0,0,.62);
       opacity:0;
       visibility:hidden;
       pointer-events:none;
       transition:opacity .2s ease, transform .2s ease;
-      z-index:99;
+      z-index:9999;
       font-size:13px;
-      line-height:1.52;
+      line-height:1.58;
     }
 
     .tooltip::before{
@@ -252,21 +263,42 @@
     .tooltip b{color:#ffffff;}
 
     .legend{
-      margin:30px auto 18px;
+      margin:34px auto 22px;
       display:flex;
       gap:18px;
       justify-content:center;
       flex-wrap:wrap;
       color:#edf5ff;
       font-size:14px;
+      position:relative;
+      z-index:1;
     }
 
     .chip{
-      padding:10px 14px;
+      padding:10px 16px;
       border-radius:999px;
-      background:rgba(7,11,22,.8);
-      border:1px solid rgba(255,255,255,.12);
+      background:rgba(7,11,22,.88);
+      border:1.5px solid rgba(255,255,255,.12);
       box-shadow:0 0 16px rgba(255,255,255,.04);
+      font-weight:600;
+    }
+
+    .chip.metal-chip{
+      border-color:rgba(25,240,255,.65);
+      color:#dffcff;
+      box-shadow:0 0 16px rgba(25,240,255,.16);
+    }
+
+    .chip.metalloid-chip{
+      border-color:rgba(255,45,251,.55);
+      color:#ffe7ff;
+      box-shadow:0 0 16px rgba(255,45,251,.12);
+    }
+
+    .chip.nonmetal-chip{
+      border-color:rgba(57,255,98,.55);
+      color:#e8ffef;
+      box-shadow:0 0 16px rgba(57,255,98,.12);
     }
 
     .notes{
@@ -380,7 +412,7 @@
       <div class="period-label"><strong>Period 2</strong>Growing influence<br>broader system size</div>
 
       <div class="card metal">
-        <div class="logo intelLogo">intel</div>
+        <img class="logo" alt="Intel logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" style="height:28px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,.16));">
         <div class="symbol">IN</div>
         <div class="name">Intel</div>
         <div class="micro">Processor hardware</div>
@@ -388,7 +420,7 @@
       </div>
 
       <div class="card metalloid">
-        <div class="logo amazonLogo">amazon</div>
+        <img class="logo" alt="Amazon logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" style="height:24px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,.16));">
         <div class="symbol">AM</div>
         <div class="name">Amazon</div>
         <div class="micro">AWS cloud infrastructure</div>
@@ -416,7 +448,7 @@
       <div class="period-label"><strong>Period 3</strong>Major influence<br>largest ecosystem size</div>
 
       <div class="card metal">
-        <div class="logo samsungLogo">SAMSUNG</div>
+        <img class="logo" alt="Samsung logo" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" style="height:26px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,.16));">
         <div class="symbol">SM</div>
         <div class="name">Samsung</div>
         <div class="micro">Global electronics scale</div>
@@ -424,7 +456,7 @@
       </div>
 
       <div class="card metalloid">
-        <div class="logo adobeLogo">Adobe</div>
+        <img class="logo" alt="Adobe logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg" style="height:26px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,.16));">
         <div class="symbol">AD</div>
         <div class="name">Adobe</div>
         <div class="micro">Creative software ecosystem</div>
@@ -432,7 +464,7 @@
       </div>
 
       <div class="card nonmetal">
-        <div class="logo spotifyLogo">Spotify</div>
+        <img class="logo" alt="Spotify logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" style="height:30px;width:30px;filter:drop-shadow(0 0 10px rgba(30,215,96,.35));">
         <div class="symbol">SP</div>
         <div class="name">Spotify</div>
         <div class="micro">Music streaming network</div>
@@ -440,7 +472,7 @@
       </div>
 
       <div class="card nonmetal">
-        <div class="logo discordLogo">Discord</div>
+        <img class="logo" alt="Discord logo" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" style="height:26px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,.16));">
         <div class="symbol">DC</div>
         <div class="name">Discord</div>
         <div class="micro">Community communication platform</div>
@@ -449,9 +481,9 @@
     </div>
 
     <div class="legend">
-      <div class="chip">Metals = hardware / physical technology</div>
-      <div class="chip">Metalloids = hybrid systems connecting hardware and software</div>
-      <div class="chip">Nonmetals = digital platforms and online services</div>
+      <div class="chip metal-chip">Metals = hardware / physical technology</div>
+      <div class="chip metalloid-chip">Metalloids = hybrid systems connecting hardware and software</div>
+      <div class="chip nonmetal-chip">Nonmetals = digital platforms and online services</div>
     </div>
 
     <section class="notes">
