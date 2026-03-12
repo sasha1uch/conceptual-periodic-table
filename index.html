@@ -1,49 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Conceptual Periodic Table</title>
+<meta charset="UTF-8">
+<title>Conceptual Periodic Table — Tech Ecosystem</title>
 
 <style>
 
 body{
-font-family: Arial;
-background:#f4f4f4;
+background:#07080d;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
 text-align:center;
 }
 
-table{
-margin:auto;
-border-collapse:collapse;
+h1{
+margin-top:30px;
+font-size:36px;
+letter-spacing:2px;
 }
 
-td{
-width:120px;
-height:100px;
-border:2px solid black;
+.subtitle{
+opacity:.7;
+margin-bottom:40px;
+}
+
+.table{
+display:grid;
+grid-template-columns:repeat(4,150px);
+grid-gap:20px;
+justify-content:center;
+}
+
+.element{
+position:relative;
+width:150px;
+height:150px;
+background:#0f111a;
+border:2px solid #00f7ff;
+border-radius:8px;
+box-shadow:0 0 8px #00f7ff;
+transition:.25s;
 cursor:pointer;
 }
 
-.metals{
-background:#87CEFA;
+.element:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00f7ff,0 0 40px #00f7ff;
+z-index:10;
 }
 
-.metalloids{
-background:#caa6ff;
+.number{
+position:absolute;
+top:6px;
+right:8px;
+font-size:12px;
+opacity:.7;
 }
 
-.nonmetals{
-background:#90EE90;
-}
-
-#info{
+.symbol{
+font-size:32px;
+font-weight:bold;
 margin-top:40px;
-padding:20px;
-background:white;
-width:500px;
-margin-left:auto;
-margin-right:auto;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.name{
+font-size:13px;
+opacity:.85;
+}
+
+.category-metal{ border-color:#00f7ff; }
+.category-metalloid{ border-color:#ff00ff; }
+.category-nonmetal{ border-color:#39ff14; }
+
+.tooltip{
+visibility:hidden;
+position:absolute;
+bottom:-120px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+padding:10px;
+width:200px;
+border-radius:6px;
+font-size:12px;
+box-shadow:0 0 10px #000;
+}
+
+.element:hover .tooltip{
+visibility:visible;
+}
+
+.legend{
+margin-top:50px;
+font-size:14px;
+}
+
+.legend span{
+margin:0 15px;
+}
+
+.notes{
+max-width:800px;
+margin:60px auto;
+text-align:left;
+line-height:1.6;
+opacity:.9;
 }
 
 </style>
@@ -51,61 +112,125 @@ box-shadow:0 0 10px rgba(0,0,0,0.2);
 
 <body>
 
-<h1>Brawl Stars Conceptual Periodic Table</h1>
+<h1>TECH ECOSYSTEM PERIODIC TABLE</h1>
+<p class="subtitle">A conceptual periodic table showing how technology companies organize into groups, periods, and trends.</p>
 
-<table>
+<div class="table">
 
-<tr>
-<td class="metals" onclick="show('Shelly','Damage dealer with strong direct attacks')">Shelly</td>
-<td class="metalloids" onclick="show('Poco','Support brawler who heals teammates')">Poco</td>
-<td class="nonmetals" onclick="show('Barley','Control brawler that denies area')">Barley</td>
-<td class="metals" onclick="show('Bull','Tank with high health and close range damage')">Bull</td>
-</tr>
-
-<tr>
-<td class="metals" onclick="show('Nita','Damage dealer that summons a bear')">Nita</td>
-<td class="metalloids" onclick="show('Byron','Hybrid support and damage')">Byron</td>
-<td class="nonmetals" onclick="show('Tick','Area denial thrower')">Tick</td>
-<td class="metals" onclick="show('Rosa','Tank with strong defense ability')">Rosa</td>
-</tr>
-
-<tr>
-<td class="metals" onclick="show('Colt','High skill damage dealer')">Colt</td>
-<td class="metalloids" onclick="show('Pam','Support healer turret')">Pam</td>
-<td class="nonmetals" onclick="show('Squeak','Sticky bombs for control')">Squeak</td>
-<td class="metals" onclick="show('Frank','Heavy tank with stun ability')">Frank</td>
-</tr>
-
-<tr>
-<td class="metals" onclick="show('Janet','High mobility damage dealer')">Janet</td>
-<td class="metalloids" onclick="show('Max','Speed boosting support')">Max</td>
-<td class="nonmetals" onclick="show('Lou','Freezing control brawler')">Lou</td>
-<td class="metals" onclick="show('Ash','Tank that grows stronger with rage')">Ash</td>
-</tr>
-
-<tr>
-<td class="metals" onclick="show('Spike','Legendary high impact damage dealer')">Spike</td>
-<td class="metalloids" onclick="show('Doug','Support who revives teammates')">Doug</td>
-<td class="nonmetals" onclick="show('Cordelius','Isolates enemies in shadow realm')">Cordelius</td>
-<td class="metals" onclick="show('Buster','Protective tank support')">Buster</td>
-</tr>
-
-</table>
-
-<div id="info">
-Click any element to see information
+<div class="element category-metal">
+<div class="number">1</div>
+<div class="symbol">AP</div>
+<div class="name">Apple</div>
+<div class="tooltip">Hardware ecosystem leader. High device integration and consumer influence.</div>
 </div>
 
-<script>
+<div class="element category-metalloid">
+<div class="number">2</div>
+<div class="symbol">MS</div>
+<div class="name">Microsoft</div>
+<div class="tooltip">Hybrid company combining operating systems, enterprise software, and cloud infrastructure.</div>
+</div>
 
-function show(name,description){
+<div class="element category-nonmetal">
+<div class="number">3</div>
+<div class="symbol">GO</div>
+<div class="name">Google</div>
+<div class="tooltip">Dominant internet platform controlling search, advertising, and global data services.</div>
+</div>
 
-document.getElementById("info").innerHTML =
-"<h2>"+name+"</h2><p>"+description+"</p>";
+<div class="element category-metal">
+<div class="number">4</div>
+<div class="symbol">NV</div>
+<div class="name">Nvidia</div>
+<div class="tooltip">Critical hardware infrastructure for AI and advanced computing systems.</div>
+</div>
 
-}
+<div class="element category-metal">
+<div class="number">5</div>
+<div class="symbol">IN</div>
+<div class="name">Intel</div>
+<div class="tooltip">CPU manufacturer responsible for decades of computing hardware innovation.</div>
+</div>
 
-</script>
+<div class="element category-metalloid">
+<div class="number">6</div>
+<div class="symbol">AM</div>
+<div class="name">Amazon</div>
+<div class="tooltip">E-commerce giant with massive cloud computing infrastructure through AWS.</div>
+</div>
+
+<div class="element category-nonmetal">
+<div class="number">7</div>
+<div class="symbol">NF</div>
+<div class="name">Netflix</div>
+<div class="tooltip">Digital streaming platform representing entertainment distribution.</div>
+</div>
+
+<div class="element category-metal">
+<div class="number">8</div>
+<div class="symbol">TS</div>
+<div class="name">Tesla</div>
+<div class="tooltip">Electric vehicle and battery manufacturer driving energy technology innovation.</div>
+</div>
+
+<div class="element category-metal">
+<div class="number">9</div>
+<div class="symbol">SM</div>
+<div class="name">Samsung</div>
+<div class="tooltip">Major global electronics manufacturer producing phones, displays, and semiconductors.</div>
+</div>
+
+<div class="element category-metalloid">
+<div class="number">10</div>
+<div class="symbol">AD</div>
+<div class="name">Adobe</div>
+<div class="tooltip">Creative software platform used globally in design, media, and digital production.</div>
+</div>
+
+<div class="element category-nonmetal">
+<div class="number">11</div>
+<div class="symbol">SP</div>
+<div class="name">Spotify</div>
+<div class="tooltip">Music streaming platform that reshaped digital media distribution.</div>
+</div>
+
+<div class="element category-nonmetal">
+<div class="number">12</div>
+<div class="symbol">DC</div>
+<div class="name">Discord</div>
+<div class="tooltip">Communication platform used widely in gaming, communities, and online collaboration.</div>
+</div>
+
+</div>
+
+<div class="legend">
+<span style="color:#00f7ff">■ Metals (Hardware / Devices)</span>
+<span style="color:#ff00ff">■ Metalloids (Hybrid Hardware + Software)</span>
+<span style="color:#39ff14">■ Nonmetals (Digital Platforms)</span>
+</div>
+
+<div class="notes">
+<h2>Explanation of Organization</h2>
+
+<p><b>Groups (Columns)</b><br>
+Each column represents a family of technology systems with similar properties. Hardware manufacturers such as Apple, Nvidia, and Samsung behave similarly because they build physical infrastructure. Hybrid companies like Microsoft or Amazon combine hardware systems with large-scale software services. Digital platforms such as Netflix or Spotify primarily exist as software ecosystems.</p>
+
+<p><b>Periods (Rows)</b><br>
+Rows represent increasing technological influence and scale. Companies lower in the table represent larger infrastructure or broader technological impact globally.</p>
+
+<p><b>Categories</b><br>
+Metals represent hardware systems and physical technology. Metalloids represent hybrid companies that connect hardware and software ecosystems. Nonmetals represent digital platforms and software services.</p>
+
+<p><b>Atomic Radius Trend</b><br>
+In this conceptual system radius represents technological influence. Influence increases down the table because companies lower in the system operate at larger global scale.</p>
+
+<p><b>Ionization Energy Trend</b><br>
+Ionization energy represents how difficult a company would be to replace within the technology ecosystem. It increases across the table from left to right because platforms become more unique and harder to substitute.</p>
+
+<p><b>Why the System Works</b><br>
+This structure mirrors the real periodic table by organizing items into families, arranging rows by increasing magnitude, separating categories, and demonstrating two opposing trends similar to atomic radius and ionization energy.</p>
+
+</div>
 
 </body>
 </html>
